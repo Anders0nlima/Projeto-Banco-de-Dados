@@ -8,7 +8,7 @@ Este projeto consiste em um banco de dados relacional usando o
 ## Detalhes das Tabelas (Schema)
 
 Abaixo estão explicadas detalhadamente todas as tabelas criadas no banco de dados:
-
+## v1
 ### 1. `usuarios`
 Armazena todos os usuários cadastrados na plataforma.
 
@@ -27,23 +27,28 @@ Armazena as respostas feitas nas postagens. Suporta estrutura de comentários an
 ### 6. `votos`
 Controla o sistema de pontuação (Upvotes e Downvotes) das publicações, assegurando que um usuário só vote uma vez por postagem.
 
+## v2
+
 ### 7. `links_postagem`
 Armazena múltiplos links associados a uma postagem específica (relacionamento 1:N).
 
+## v3
+
+### 8. `votos_comentario`
+permitir upvotes e downvotes nas respostas (comentarios)
+
 ---
 
-## 🚀 Histórico de Migrações (Updates)
+## Histórico de Migrações
 
-Aqui está o histórico de alterações realizadas no esquema do banco de dados:
+### 001_schema_migration.sql
+*   **Descrição**: Definição da estrutura e do esquema inicial do Reddit.
+*   **O que foi feito**: Criação das tabelas base do sistema (`usuarios`, `comunidades`, `inscricoes`, `postagens`, `comentarios` e `votos`).
 
-### 📁 [001_schema_migration.sql]
-#### (Parte Inicial)
-*   **Descrição**: Definição da estrutura e do esquema inicial do clone do Reddit.
-*   **O que foi feito**: Criação das tabelas base do sistema (`usuarios`, `comunidades`, `inscricoes`, `postagens` com coluna `url` integrada, `comentarios` e `votos`).
+### 002_schema_migration.sql
+*   **Problema resolvido**: A coluna `url` na tabela principal de `postagens` limitava as publicações a conterem no máximo um único link.
+*   **O que foi feito**: tiramos a coluna `url` da tabela `postagens` e criamos uma tabela `links_postagem` que referencia `postagens(id)` assim permitindo ter varios links em uma unica postagem.
 
-### 📁 [002_schema_migration.sql]
-#### (Correção de Erro e Suporte a Múltiplos Links)
-*   **Problema resolvido**: A coluna `url` na tabela principal de `postagens` limitava as publicações a conterem no máximo um único link (ou forçava valores nulos em posts puramente de texto).
-*   **O que foi feito**:
-    1. Removeu a coluna `url` da tabela `postagens`.
-    2. Criou a tabela `links_postagem` referenciando `postagens(id)` com chave estrangeira (`ON DELETE CASCADE`), permitindo associar múltiplos links a uma única postagem.
+### 003_schema_migration.sql
+* **Problema resolvido**: Os comentarios feitos nos posts agora podem ser votados tambem
+* **O que foi feito**: criamos a tabela `votos_comentario`
