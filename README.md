@@ -37,6 +37,11 @@ Armazena múltiplos links associados a uma postagem específica (relacionamento 
 ### 8. `votos_comentario`
 permitir upvotes e downvotes nas respostas (comentarios)
 
+## v4
+
+### 9. `postagens_salvas`
+permitir que o usuario salve postagens
+
 ---
 
 ## Histórico de Migrações
@@ -51,4 +56,8 @@ permitir upvotes e downvotes nas respostas (comentarios)
 
 ### 003_schema_migration.sql
 * **Problema resolvido**: Os comentarios feitos nos posts agora podem ser votados tambem
-* **O que foi feito**: criamos a tabela `votos_comentario`
+* **O que foi feito**: criamos a tabela `votos_comentario` do tipo associativa, ou seja, liga duas tabelas que existem (N:N)
+
+### 004_schema_migration.sql
+* **Problema resolvido**: Os posts agora podem ser salvos pelo usuario
+* **O que foi feito**: criamos a tabela `postagens_salvas` do tipo associativa (N:N)

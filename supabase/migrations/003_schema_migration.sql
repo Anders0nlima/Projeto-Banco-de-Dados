@@ -7,3 +7,4 @@ CREATE TABLE votos_comentario (
 );
 
 -- problema resolvido: os comentarios dos posts tbm podem ser votados ("curtidos")
+-- tabela associativa: está conectando a tabela usuarios com a tabela comentarios.
