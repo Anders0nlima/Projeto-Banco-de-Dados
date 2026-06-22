@@ -8,7 +8,6 @@ Este projeto consiste em um banco de dados relacional usando o
 ## Detalhes das Tabelas (Schema)
 
 Abaixo estão explicadas detalhadamente todas as tabelas criadas no banco de dados:
-## v1
 ### 1. `usuarios`
 Armazena todos os usuários cadastrados na plataforma.
 
@@ -27,17 +26,11 @@ Armazena as respostas feitas nas postagens. Suporta estrutura de comentários an
 ### 6. `votos`
 Controla o sistema de pontuação (Upvotes e Downvotes) das publicações, assegurando que um usuário só vote uma vez por postagem.
 
-## v2
-
 ### 7. `links_postagem`
 Armazena múltiplos links associados a uma postagem específica (relacionamento 1:N).
 
-## v3
-
 ### 8. `votos_comentario`
 permitir upvotes e downvotes nas respostas (comentarios)
-
-## v4
 
 ### 9. `postagens_salvas`
 permitir que o usuario salve postagens
@@ -61,3 +54,7 @@ permitir que o usuario salve postagens
 ### 004_schema_migration.sql
 * **Problema resolvido**: Os posts agora podem ser salvos pelo usuario
 * **O que foi feito**: criamos a tabela `postagens_salvas` do tipo associativa (N:N)
+
+### 005_schema_migration.sql
+* **Problema resolvido**: os post é os comentarios podem ser apagados, alterando para false ou true
+* **O que foi feito**: incrementamos a coluna ativo em comentarios e postagens
