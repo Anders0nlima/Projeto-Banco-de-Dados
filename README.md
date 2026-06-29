@@ -65,4 +65,8 @@ permitir que o usuario salve postagens
 
 ### 007_schema_migration.sql
 * **Problema resolvido**: ainda nao tinha "ativo" em usuario e comunidade, alem disso foi add avatar e banner neles
+* **O que foi feito**:
+
+### 008_schema_migration.sql
+* **Problema resolvido**: add a função de repostar postagens
 * **O que foi feito**: 
