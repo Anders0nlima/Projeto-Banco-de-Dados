@@ -58,3 +58,7 @@ permitir que o usuario salve postagens
 ### 005_schema_migration.sql
 * **Problema resolvido**: os post é os comentarios podem ser apagados, alterando para false ou true
 * **O que foi feito**: incrementamos a coluna ativo em comentarios e postagens
+
+### 006_schema_migration.sql
+* **Problema resolvido**: tenho o horario da criação das entidades, facilitando sua ordenação
+* **O que foi feito**: trocado o DATE por TIMESTAMPTZ
