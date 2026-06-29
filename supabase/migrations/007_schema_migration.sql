@@ -1,0 +1,11 @@
+ALTER TABLE usuarios 
+ADD COLUMN avatar_url VARCHAR(2000) DEFAULT NULL,
+ADD COLUMN banner_url VARCHAR(2000) DEFAULT NULL,
+ADD COLUMN ativo BOOLEAN DEFAULT TRUE;
+
+ALTER TABLE comunidades 
+ADD COLUMN avatar_url VARCHAR(2000) DEFAULT NULL,
+ADD COLUMN banner_url VARCHAR(2000) DEFAULT NULL,
+ADD COLUMN ativo BOOLEAN DEFAULT TRUE;
+
+-- usuarios e comunidades tem ativo, adicionando avatar e banner

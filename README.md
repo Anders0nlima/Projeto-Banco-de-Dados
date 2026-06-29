@@ -62,3 +62,7 @@ permitir que o usuario salve postagens
 ### 006_schema_migration.sql
 * **Problema resolvido**: tenho o horario da criação das entidades, facilitando sua ordenação
 * **O que foi feito**: trocado o DATE por TIMESTAMPTZ
+
+### 007_schema_migration.sql
+* **Problema resolvido**: ainda nao tinha "ativo" em usuario e comunidade, alem disso foi add avatar e banner neles
+* **O que foi feito**: 
