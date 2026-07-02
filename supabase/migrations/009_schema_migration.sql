@@ -1,0 +1,3 @@
+ALTER TABLE usuarios 
+ADD COLUMN karma_postagens INTEGER NOT NULL DEFAULT 0,
+ADD COLUMN karma_comentarios INTEGER NOT NULL DEFAULT 0;

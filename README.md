@@ -70,3 +70,8 @@ permitir que o usuario salve postagens
 ### 008_schema_migration.sql
 * **Problema resolvido**: add a função de repostar postagens
 * **O que foi feito**: 
+
+
+### 009_schema_migration.sql
+* **Problema resolvido**: karma
+* **O que foi feito**: 
