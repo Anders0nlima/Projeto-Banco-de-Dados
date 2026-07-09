@@ -1,9 +1,48 @@
-# Reddit Database Schema
+# Reddit Database
 
-Este projeto consiste em um banco de dados relacional usando o
-**Supabase**, modelando uma estrutura similar à do **Reddit**. A estrutura está organizada para facilitar a execução de migrations.
+Este repositório contém o modelo relacional e os scripts de banco de dados para Reddit. O sistema permite a criação de comunidades, postagens, threads de comentários complexas (pai e filho), e um sistema de reputação (Karma) baseado em upvotes e downvotes.
 
 ---
+
+## 👥 Integrantes da Equipe
+* **ANDERSON DA CONCEICAO LIMA** - 202511140003
+* **ALESSANDRO ANDEL SILVA PEREIRA** - 202511140012
+* **PAULO HENRIQUE DOS SANTOS BRITO** -  202511140005
+  
+---
+
+## Sobre
+
+O sistema foi modelado para suportar as principais funcionalidades do Reddit. As principais regras de negócio implementadas no banco de dados incluem:
+
+* **Gestão de Usuários:** Autenticação básica e cálculo de reputação (Karma de Postagens e Comentários) via desnormalização para otimização de performance.
+* **Comunidades (Subreddits):** Grupos criados por usuários onde as postagens são centralizadas.
+* **Postagens e Comentários:** Suporte a textos e links, com estrutura recursiva para comentários (respostas a outros comentários).
+* **Sistema de Votação:** Votos positivos e negativos em postagens e comentários, garantindo unicidade (um voto por usuário por entidade).
+* **Soft Delete:** Implementação da coluna `ativo (BOOLEAN)` nas entidades principais para preservar a integridade referencial das discussões caso um usuário ou postagem seja "apagado".
+* **Timezones:** Uso global de `TIMESTAMPTZ` para garantir a precisão cronológica e o suporte a múltiplos fusos horários.
+
+---
+
+## Diagrama Entidade-Relacionamento (ER)
+
+<img width="749" height="477" alt="Image" src="https://github.com/user-attachments/assets/82fc653f-1bf5-4f67-b71c-8e6293f05f01" />
+
+---
+
+## Como Rodar as Migrações (Scripts SQL)
+O banco de dados foi construído utilizando **PostgreSQL**. Para replicar a estrutura e popular o banco com os dados iniciais, siga os passos abaixo:
+
+### Pré-requisitos
+* Ter o **PostgreSQL** instalado localmente ou acesso a um banco em nuvem (ex: **Supabase**, Render, Heroku).
+* Um cliente de banco de dados como **DBeaver**, **pgAdmin**, ou a própria interface web do Supabase (SQL Editor).
+
+### Passo a Passo
+
+1. Clone o repositório
+2. Copie o conteúdo do arquivo onde estão as criações de tabelas e execute no seu cliente SQL. Isso criará toda a estrutura (Usuários, Comunidades, Postagens, Comentários, Votos, etc.)
+3. Para inserir os dados de teste (usuários, posts, comentários e votos de exemplo), abra o arquivo de inserções ( seeds.sql) e execute o script.
+
 
 ## Detalhes das Tabelas (Schema)
 
